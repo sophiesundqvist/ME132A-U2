@@ -6,6 +6,75 @@
     <title>Document</title>
 </head>
 <body>
+
+    
+    <div id="form-container">  
+        <h1>Resmål</h1>
+        <form class="add-to-list">
+            <input id="add-destination" type="text" placeholder="Destination">
+            <input id="add-country" type="text" placeholder="Land">
+        </form>
+
+        <form class="add-to-list">
+            <input id="add-type" type="text" placeholder="Restyp">
+            <input id="add-grade" type= "number" placeholder="Betyg">
+        </form>
+        
+        <div>
+        <button id="add">Lägg till resmål</button>
+        </div>
+        
+        <!-- <form id="filter-list">
+            <input id="filter-by-country" type="text" placeholder="Filtrera på land">
+            <input id="filter-by-type" type="text" placeholder="Filtrera på restyp">
+            <button id="filter">Filtrera</button>
+        </form> -->
+    </div>
+
+    <div id="container">
+
+        <div id="filter">
+            <input id="filter-by-country" type="text" placeholder="Filtrera på land">
+            <input id="filter-by-type" type="text" placeholder="Filtrera på restyp">
+            <button id="filter-button">Filtrera</button>
+            <button id="reset-button">Återställ</button>
+        </div>
+
+        <div id = "title">
+            <div>Radnummer</div>
+            <div>Resmål</div>
+            <div>Land</div>
+            <div>Typ</div>
+            <div>Betyg</div>
+        </div>
+
+        <div id = "destinations">
+
+            <div class="destination">
+                <div>Radnummer1</div>
+                <div>Resmål1</div>
+                <div>Land</div>
+                <div>typ</div>
+                <div>Betyg</div>
+                <div><button>Remove</button></div>
+            </div>     
+
+            <div class="destination">
+                <div>Radnummer1</div>
+                <div>Resmål1</div>
+                <div>Land</div>
+                <div>typ</div>
+                <div>Betyg</div>
+                <div><button>Remove</button></div>
+            </div>   
+
+
+
+        </div>
+
+    </div>
+
+
     
 
     <script src="database.js"></script>

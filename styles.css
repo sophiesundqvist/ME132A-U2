@@ -1,0 +1,111 @@
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3E3C3C;
+}
+
+h1{
+    color: white;
+}
+
+#form-container{
+    background-color: #8F8681; 
+    margin-top: 10px;
+    width: 50vw;
+    padding: 70px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+#form-container > div{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+#add{
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 11px black;
+}
+
+.add-to-list{
+    padding-bottom: 20px;
+}
+
+#filter-list{
+    padding: 40px;
+    padding-bottom: 20px;
+}
+
+#container{
+    margin-top: 10px;
+    background-color:#E1DCD9;
+    color: black;
+    width: 60vw;
+    padding: 70px;
+    border-radius: 20px;
+    height: 50vh;
+}
+
+#filter-by-country{
+    margin-right: 10px;
+}
+
+#filter-button{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#filter{
+    display: flex;
+    justify-content: center;
+}
+
+#title{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border-bottom: 1px solid black;
+}
+
+#title > div{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.destination{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+}
+
+.destination > div{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#destinations > div:nth-child(odd){
+    background-color: #faad8488;
+}
+
+#destinations > div:nth-child(even){
+    background-color: #ffc8527a;
+}
+
+.destination > button{
+    padding: 5px;
+}
