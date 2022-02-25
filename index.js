@@ -1,38 +1,38 @@
 "use strict"
+function createDivWithDestination(destination){
 
-
-function updateListFromDatabase (){
-
-    let destinations = document.getElementById("destinations")
-
-    destinations.innerHTML = ""
-
-    for(let i = 0; i < database.length; i++){
-        let div = document.createElement("div")
+    let div = document.createElement("div")
         div.classList.add("destination")
 
-        let destination = database[i].destination
-        let country = database[i].country
-        let type = database[i].type
-        let grade = database[i].grade
-        let line = i + 1
-
         div.innerHTML = `
-        <div> ${line}</div>
-        <div> ${destination}</div>
-        <div> ${country}</div>
-        <div> ${type}</div>
-        <div> ${grade}</div>
+        <div> ${destination.id}</div>
+        <div> ${destination.destination}</div>
+        <div> ${destination.country}</div>
+        <div> ${destination.type}</div>
+        <div> ${destination.grade}</div>
         <div> <button>Remove</button></div>
         `
 
-        destinations.appendChild(div)
-
+        return div
+        
+    }
+    
+    
+    function updateListFromDatabase (){
+        
+        let destinations = document.getElementById("destinations")
+        
+        destinations.innerHTML = ""
+        
+        for(let destination of database){
+             
+            destinations.appendChild(createDivWithDestination(destination))
     }
 
 }
 
 updateListFromDatabase ()
+
 
 
 function addDestinationFromInput (){
@@ -68,8 +68,46 @@ function onClickAddDestinationToDatabase(){
     button.addEventListener("click", function(){
         addDestinationFromInput()
         updateListFromDatabase()
+        console.log(database)
 
     })
 }
 
 onClickAddDestinationToDatabase()
+
+
+function filterDestinationByCountry (){
+
+    let country = document.getElementById("filter-by-country").value
+    let destinations = document.getElementById("destinations")
+
+    destinations.innerHTML = ""
+
+    for (let destination of database){
+        
+       if (country == destination.country)
+            destinations.appendChild(createDivWithDestination(destination))
+        
+    }
+}
+
+function filterDestinationByType(){
+    let type = document.getElementById("filter-by-type").value
+    let destinations = document.getElementById("destinations")
+
+    destinations.innerHTML = ""
+
+    for (let destination of database){
+
+        if (type == destination.type){
+
+            console.log(destination)
+            destinations.appendChild(createDivWithDestination(destination))
+
+
+        }
+    }
+}
+
+
+
