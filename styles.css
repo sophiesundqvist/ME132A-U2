@@ -39,7 +39,7 @@ h1{
     box-shadow: 0 0 11px black;
 }
 
-.add-to-list{
+#add-to-list1, #add-to-list2 {
     padding-bottom: 20px;
 }
 
@@ -52,10 +52,12 @@ h1{
     margin-top: 10px;
     background-color:#E1DCD9;
     color: black;
-    width: 60vw;
+    width: 80vw;
     padding: 70px;
     border-radius: 20px;
-    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #filter-by-country{
@@ -75,7 +77,7 @@ h1{
 #title{
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 100px);
     border-bottom: 1px solid black;
 }
 
@@ -88,7 +90,7 @@ h1{
 
 .destination{
     display: grid;
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(6,100px);
 }
 
 .destination > div{
@@ -98,13 +100,7 @@ h1{
     align-items: center;
 }
 
-#destinations > div:nth-child(odd){
-    background-color: #faad8488;
-}
 
-#destinations > div:nth-child(even){
-    background-color: #ffc8527a;
-}
 
 .destination > button{
     padding: 5px;
