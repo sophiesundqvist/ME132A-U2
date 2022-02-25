@@ -6,8 +6,7 @@ let database = [
         destination: "Paris",
         country: "Frankrike",
         type: "Cityresa",
-        grade: 5,
-        covidRestrictions: true  
+        grade: 5, 
     },
 
     {
@@ -15,8 +14,7 @@ let database = [
         destination: "Mallorca",
         country: "Spanien",
         type: "Solsemester",
-        grade: 4,
-        covidRestrictions: false  
+        grade: 4, 
     },
 
     {
@@ -24,8 +22,7 @@ let database = [
         destination: "Bad Gastein",
         country: "Österrike",
         type: "Skidsemester",
-        grade: 4,
-        covidRestrictions: true  
+        grade: 4,  
     },
 
     {
@@ -33,8 +30,7 @@ let database = [
         destination: "Barcelona",
         country: "Spanien",
         type: "Cityresa",
-        grade: 5,
-        covidRestrictions: true  
+        grade: 5, 
     },
 
     {
@@ -43,7 +39,6 @@ let database = [
         country: "Grekland",
         type: "Solsemester",
         grade: 4,
-        covidRestrictions: false  
     },
 
     {
@@ -52,7 +47,6 @@ let database = [
         country: "Tjeckien",
         type: "Cityresa",
         grade: 3,
-        covidRestrictions: false
     },
 
     {
@@ -61,7 +55,6 @@ let database = [
         country: "Sverige",
         type: "Cityresa",
         grade: 2,
-        covidRestrictions: true  
     },
 
     {
@@ -70,7 +63,6 @@ let database = [
         country: "Grekland",
         type: "Solsemester",
         grade: 3,
-        covidRestrictions: false  
     },
 
     {
@@ -78,8 +70,7 @@ let database = [
         destination: "Trysil",
         country: "Norway",
         type: "Skidsemester",
-        grade: 3,
-        covidRestrictions: true  
+        grade: 3, 
     },
 
     {
@@ -87,8 +78,7 @@ let database = [
         destination: "Venedig",
         country: "Italien",
         type: "Cityresa",
-        grade: 5,
-        covidRestrictions: true  
+        grade: 5, 
     }
 
 
