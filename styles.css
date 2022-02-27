@@ -60,8 +60,12 @@ h1{
     align-items: center;
 }
 
-#filter-by-country{
+/* #filter-by-country{
     margin-right: 10px;
+} */
+
+#filter-by-type{
+    margin-left: 10px;
 }
 
 #filter-button{

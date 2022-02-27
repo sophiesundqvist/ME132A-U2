@@ -10,7 +10,7 @@ function createDivWithDestination(destination){
         <div> ${destination.country}</div>
         <div> ${destination.type}</div>
         <div> ${destination.grade}</div>
-        <div> <button>Remove</button></div>
+        <div> <button>Ta bort</button></div>
         `
 
         return div
@@ -108,6 +108,19 @@ function filterDestinationByType(){
         }
     }
 }
+
+function filterDestinationByCLick (){
+    let buttonCountry = document.getElementById("filter-button-country")
+    let buttonType = document.getElementById("filter-button-type")
+    let buttonReset = document.getElementById("reset-button")
+    buttonCountry.addEventListener("click", filterDestinationByCountry ) 
+    buttonType.addEventListener ("click", filterDestinationByType)
+    buttonReset.addEventListener("click", updateListFromDatabase)
+
+}
+
+filterDestinationByCLick()
+
 
 
 
