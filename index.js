@@ -1,11 +1,12 @@
 "use strict"
-function createDivWithDestination(destination){
+function createDivWithDestination(destination, line){
 
     let div = document.createElement("div")
         div.classList.add("destination")
+        div.id = destination.id
 
         div.innerHTML = `
-        <div> ${destination.id}</div>
+        <div> ${line}</div>
         <div> ${destination.destination}</div>
         <div> ${destination.country}</div>
         <div> ${destination.type}</div>
@@ -24,9 +25,10 @@ function createDivWithDestination(destination){
         
         destinations.innerHTML = ""
         
-        for(let destination of database){
+        for(let i = 0; i < database.length; i++){
              
-            destinations.appendChild(createDivWithDestination(destination))
+            destinations.appendChild(createDivWithDestination(database[i], i + 1))
+            removeDestinationByClick()
     }
 
 }
@@ -121,6 +123,37 @@ function filterDestinationByCLick (){
 
 filterDestinationByCLick()
 
+function removeDestinationById(id){
+
+    for (let i = 0; i < database.length; i++){
+        if (id == database[i].id){
+            database.splice(i,1)
+    }
+
+    updateListFromDatabase()
+}
+}
+
+function onRemoveDestinationById (event){
+
+    let button = event.target
+    let id = button.parentElement.parentElement.id
+    
+    removeDestinationById(id)
+
+}
 
 
 
+function removeDestinationByClick (){
+
+    let buttons = document.querySelectorAll(".destination button")
+
+    for (let button of buttons){
+        button.addEventListener("click", onRemoveDestinationById)
+    }
+
+}
+
+
+removeDestinationByClick()
