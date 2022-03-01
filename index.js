@@ -143,16 +143,21 @@ function showFilterDivsType(){
     updateList(filterdType)
 }
 
-function addClickoFilter(){
+function addClickToFilter(){
     let buttonCountry = document.getElementById("filter-button-country")
     let buttonType = document.getElementById("filter-button-type")
+    let buttonReset = document.getElementById("reset-button")
+    
 
     buttonCountry.addEventListener("click", showFilterDivsCountry)
     buttonType.addEventListener("click", showFilterDivsType)
+    buttonReset.addEventListener("click", function(){
+        updateList(database)
+    })
 
 }
 
-addClickoFilter()
+addClickToFilter()
 
 
 
