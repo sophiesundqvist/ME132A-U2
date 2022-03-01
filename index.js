@@ -19,21 +19,21 @@ function createDivWithDestination(destination, line){
     }
     
     
-    function updateListFromDatabase (){
+    function updateList (database){
         
         let destinations = document.getElementById("destinations")
         
         destinations.innerHTML = ""
         
         for(let i = 0; i < database.length; i++){
-             
-            destinations.appendChild(createDivWithDestination(database[i], i + 1))
+            let destinationElement = createDivWithDestination(database[i], i + 1)
+            destinations.appendChild(destinationElement)
             removeDestinationByClick()
     }
 
 }
 
-updateListFromDatabase ()
+updateList (database)
 
 
 
@@ -58,7 +58,6 @@ function addDestinationFromInput (){
 
     database.push(destinationObject)
 
-    // varför kan jag inte reset när jag har class utan måste id på dessa formulär
     form1.reset()
     form2.reset()
 
@@ -69,7 +68,7 @@ function onClickAddDestinationToDatabase(){
 
     button.addEventListener("click", function(){
         addDestinationFromInput()
-        updateListFromDatabase()
+        updateList(database)
         console.log(database)
 
     })
@@ -78,50 +77,80 @@ function onClickAddDestinationToDatabase(){
 onClickAddDestinationToDatabase()
 
 
-function filterDestinationByCountry (){
+// function filterDestinationByCountry (){
 
-    let country = document.getElementById("filter-by-country").value
-    let destinations = document.getElementById("destinations")
+//     let country = document.getElementById("filter-by-country").value
+//     let destinations = document.getElementById("destinations")
 
-    destinations.innerHTML = ""
+//     destinations.innerHTML = ""
+
+//     for (let i = 0; i < database.length; i++){
+        
+//        if (country == database[i].country)
+//             destinations.appendChild(createDivWithDestination(database[i], i))
+        
+//     }
+// }
+
+function filterDestinationByCountry(country){
+    let destinationByCountry = []
 
     for (let destination of database){
-        
-       if (country == destination.country)
-            destinations.appendChild(createDivWithDestination(destination))
-        
+
+        if (destination.country == country){
+            destinationByCountry.push(destination)
+        }
     }
+
+    return destinationByCountry
 }
 
-function filterDestinationByType(){
-    let type = document.getElementById("filter-by-type").value
-    let destinations = document.getElementById("destinations")
 
-    destinations.innerHTML = ""
+
+function filterDestinationByType(type){
+
+    let destinationByType = []
 
     for (let destination of database){
 
         if (type == destination.type){
-
-            console.log(destination)
-            destinations.appendChild(createDivWithDestination(destination))
+            destinationByType.push(destination)
 
 
         }
     }
+    return destinationByType
 }
 
-function filterDestinationByCLick (){
+
+function showFilterDivsCountry(){
+    let country = document.querySelector("#filter-by-country").value
+    let filterdDestinations = filterDestinationByCountry(country)
+
+    updateList(filterdDestinations)
+
+}
+
+function showFilterDivsType(){
+    let type = document.querySelector("#filter-by-type").value
+    let filterdType = filterDestinationByType(type)
+
+    updateList(filterdType)
+}
+
+function addClickoFilter(){
     let buttonCountry = document.getElementById("filter-button-country")
     let buttonType = document.getElementById("filter-button-type")
-    let buttonReset = document.getElementById("reset-button")
-    buttonCountry.addEventListener("click", filterDestinationByCountry ) 
-    buttonType.addEventListener ("click", filterDestinationByType)
-    buttonReset.addEventListener("click", updateListFromDatabase)
+
+    buttonCountry.addEventListener("click", showFilterDivsCountry)
+    buttonType.addEventListener("click", showFilterDivsType)
 
 }
 
-filterDestinationByCLick()
+addClickoFilter()
+
+
+
 
 function removeDestinationById(id){
 
@@ -130,7 +159,7 @@ function removeDestinationById(id){
             database.splice(i,1)
     }
 
-    updateListFromDatabase()
+    updateList(database)
 }
 }
 
