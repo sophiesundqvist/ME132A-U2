@@ -173,8 +173,9 @@ function onRemoveDestinationById (event){
     let button = event.target
     let id = button.parentElement.parentElement.id
     
-    removeDestinationById(id)
-
+    if (confirm("Är du säker på att du vill ta bort denna destinationen?")){
+        removeDestinationById(id)
+    }
 }
 
 
