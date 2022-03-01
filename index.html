@@ -8,38 +8,40 @@
 <body>
 
     
-    <div id="form-container">  
+    <form id="form-container">  
         <h1>Resmål</h1>
-        <form id="add-to-list1">
+        <div id="add-to-list1">
             <input id="add-destination" type="text" placeholder="Destination">
             <input id="add-country" type="text" placeholder="Land">
-        </form>
+        </div>
 
-        <form id="add-to-list2">
+        <div id="add-to-list2">
             <input id="add-type" type="text" placeholder="Restyp">
             <input id="add-grade" type= "number" placeholder="Betyg">
-        </form>
+        </div>
         
         <div>
         <button id="add">Lägg till resmål</button>
         </div>
-        
-        <!-- <form id="filter-list">
-            <input id="filter-by-country" type="text" placeholder="Filtrera på land">
-            <input id="filter-by-type" type="text" placeholder="Filtrera på restyp">
-            <button id="filter">Filtrera</button>
-        </form> -->
-    </div>
+  
+    </form>
 
     <div id="container">
 
         <div id="filter">
-            <input id="filter-by-country" type="text" placeholder="Filtrera på land">
-            <button id="filter-button-country">Filtrera</button>
-            <input id="filter-by-type" type="text" placeholder="Filtrera på restyp">
-            <button id="filter-button-type">Filtrera</button>
-            <button id="reset-button">Återställ</button>
-        </div>
+
+            <form id = filterCountry>
+              <input id="filter-by-country" type="text" placeholder="Filtrera på land">
+              <button>Filtrera</button>
+            </form>
+
+            <form id = filterType>
+             <input id="filter-by-type" type="text" placeholder="Filtrera på restyp">
+              <button id="filter-button-type">Filtrera</button>
+             </form>
+
+            <button id="reset-button" type="button">Återställ</button>
+            </div>
 
         <div id = "title">
             <div>Radnummer</div>

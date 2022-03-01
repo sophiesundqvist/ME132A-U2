@@ -37,10 +37,10 @@ updateList (database)
 
 
 
-function addDestinationFromInput (){
+function addDestinationFromInput (event){
+    event.preventDefault()
 
-    let form1 = document.getElementById("add-to-list1")
-    let form2 = document.getElementById("add-to-list2")
+    let form = document.getElementById("form-container")
     let destination = document.getElementById("add-destination").value
     let country = document.getElementById("add-country").value
     let type = document.getElementById("add-type").value
@@ -58,44 +58,26 @@ function addDestinationFromInput (){
 
     if (destination.length > 1 && country.length > 1 && type.length > 1 && grade.length == 1){
         database.push(destinationObject)
+        updateList(database)
     } else {
         alert("Formulär är inte ifyllt!")
     }
 
-
-    form1.reset()
-    form2.reset()
+    form.reset()
+    
 
 }
 
 function onClickAddDestinationToDatabase(){
-    let button = document.getElementById("add")
+    let formAdd = document.getElementById("form-container")
 
-    button.addEventListener("click", function(){
-        addDestinationFromInput()
-        updateList(database)
-        console.log(database)
-
-    })
+    formAdd.addEventListener("submit", addDestinationFromInput)
 }
 
 onClickAddDestinationToDatabase()
 
 
-// function filterDestinationByCountry (){
 
-//     let country = document.getElementById("filter-by-country").value
-//     let destinations = document.getElementById("destinations")
-
-//     destinations.innerHTML = ""
-
-//     for (let i = 0; i < database.length; i++){
-        
-//        if (country == database[i].country)
-//             destinations.appendChild(createDivWithDestination(database[i], i))
-        
-//     }
-// }
 
 function filterDestinationByCountry(country){
     let destinationByCountry = []
@@ -128,7 +110,8 @@ function filterDestinationByType(type){
 }
 
 
-function showFilterDivsCountry(){
+function showFilterDivsCountry(event){
+    event.preventDefault()
     let country = document.querySelector("#filter-by-country").value
     let filterdDestinations = filterDestinationByCountry(country)
 
@@ -136,21 +119,25 @@ function showFilterDivsCountry(){
 
 }
 
-function showFilterDivsType(){
+function showFilterDivsType(event){
+    event.preventDefault()
+
     let type = document.querySelector("#filter-by-type").value
     let filterdType = filterDestinationByType(type)
 
     updateList(filterdType)
 }
 
+
+
 function addClickToFilter(){
-    let buttonCountry = document.getElementById("filter-button-country")
-    let buttonType = document.getElementById("filter-button-type")
+    let countryForm = document.getElementById("filterCountry")
+    let typeForm = document.getElementById("filterType")
     let buttonReset = document.getElementById("reset-button")
     
 
-    buttonCountry.addEventListener("click", showFilterDivsCountry)
-    buttonType.addEventListener("click", showFilterDivsType)
+    countryForm.addEventListener("submit", showFilterDivsCountry)
+    typeForm.addEventListener("submit", showFilterDivsType)
     buttonReset.addEventListener("click", function(){
         updateList(database)
         document.getElementById("filter-by-country").value = ""
@@ -174,6 +161,8 @@ function removeDestinationById(id){
     updateList(database)
 }
 }
+
+
 
 function onRemoveDestinationById (event){
 
@@ -199,3 +188,4 @@ function removeDestinationByClick (){
 
 
 removeDestinationByClick()
+

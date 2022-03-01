@@ -28,11 +28,7 @@ h1{
     
 }
 
-#form-container > div{
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
-}
+
 
 #add{
     padding: 10px;
@@ -78,8 +74,11 @@ h1{
 }
 
 #filter{
+   display: flex;
+}
+
+#filter > form{
     display: flex;
-    justify-content: center;
 }
 
 #title{
