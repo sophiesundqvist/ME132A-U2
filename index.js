@@ -153,6 +153,8 @@ function addClickToFilter(){
     buttonType.addEventListener("click", showFilterDivsType)
     buttonReset.addEventListener("click", function(){
         updateList(database)
+        document.getElementById("filter-by-country").value = ""
+        document.getElementById("filter-by-type").value = ""
     })
 
 }
