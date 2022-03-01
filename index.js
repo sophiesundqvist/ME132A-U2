@@ -48,7 +48,7 @@ function addDestinationFromInput (){
 
     let destinationObject = {
 
-        id: database.length + 1,
+        id: database[database.length -1].id + 1,
         destination: destination,
         country: country,
         type: type,
@@ -56,7 +56,12 @@ function addDestinationFromInput (){
 
     }
 
-    database.push(destinationObject)
+    if (destination.length > 1 && country.length > 1 && type.length > 1 && grade.length == 1){
+        database.push(destinationObject)
+    } else {
+        alert("Formulär är inte ifyllt!")
+    }
+
 
     form1.reset()
     form2.reset()
