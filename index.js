@@ -84,7 +84,7 @@ function filterDestinationByCountry(country){
 
     for (let destination of database){
 
-        if (destination.country == country){
+        if (destination.country.toLowerCase() == country.toLowerCase()){
             destinationByCountry.push(destination)
         }
     }
@@ -100,7 +100,7 @@ function filterDestinationByType(type){
 
     for (let destination of database){
 
-        if (type == destination.type){
+        if (type.toLowerCase() == destination.type.toLowerCase()){
             destinationByType.push(destination)
 
 
